@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180124204039) do
     t.string "name"
     t.text "description"
     t.string "cook_time"
-    t.string "servings"
+    t.integer "servings"
     t.text "instructions"
     t.integer "user_id"
     t.integer "meal_id"

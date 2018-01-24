@@ -1,0 +1,33 @@
+<h2>Create a New Recipe</h2>
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <br />
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :description %>
+  <br />
+  <%= f.text_area :description %>
+  <br />
+  <%= f.label :cook_time %>
+  <br />
+  <%= f.text_field :cook_time %>
+  <br />
+  <%= f.label :servings %>
+  <br />
+  <%= f.text_field :servings %>
+  <br />
+
+  <%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_fields| %>
+    Ingredient:
+    <br />
+    <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
+    
+  <% end %>
+  <br />
+  <%= f.label :instructions %>
+  <br />
+  <%= f.text_area :instructions %>
+  <br />
+
+  <%= f.submit %>
+<% end %>
