@@ -2,15 +2,16 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @ingredient = Ingredient.new
+    @recipe.ingredients.build
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-
+    @recipe.user_id = session[:user_id]
     if @recipe.save
-      @recipe.user_id = session[:user_id]
+
       redirect_to recipe_path(@recipe)
+
     else
       render 'new'
     end
