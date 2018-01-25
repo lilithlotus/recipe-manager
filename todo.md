@@ -1,0 +1,2 @@
+-add nest route for pictures
+-add facebook login capabilities 
