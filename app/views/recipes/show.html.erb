@@ -4,12 +4,16 @@
 <p><%= @recipe.servings %></p>
 <ul>
 <% @recipe.ingredients.each do |i| %>
+
   <li><%= i.name %></li>
+  
 <% end %>
 </ul>
 <p><%= @recipe.instructions %></p>
 
 <%= link_to "Add Image", new_recipe_image_path(@recipe) %>
+<br />
+<%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
 <br />
 <%= form_tag recipe_path(@recipe.id), method: "delete" %>
   <%= submit_tag "Delete Recipe" %>

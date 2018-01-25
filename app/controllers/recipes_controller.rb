@@ -21,6 +21,19 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update
+      redirect_to recipe_path(@recipe)
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @recipes = Recipe.all
   end
