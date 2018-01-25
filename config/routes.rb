@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'welcome#home'
 
   get '/login', to: 'sessions#new'
@@ -9,7 +10,9 @@ Rails.application.routes.draw do
   resources :meals
   resources :ingredients
   resources :users
-  resources :recipes
+  resources :recipes do
+    resources :images
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
