@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125213832) do
+ActiveRecord::Schema.define(version: 20180125214326) do
 
   create_table "images", force: :cascade do |t|
     t.string "url"
     t.text "caption"
+    t.integer "recipe_id"
   end
 
   create_table "ingredients", force: :cascade do |t|

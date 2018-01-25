@@ -2,4 +2,11 @@
 <p><%= @recipe.description %></p>
 <p><%= @recipe.cook_time %></p>
 <p><%= @recipe.servings %></p>
+<ul>
+<% @recipe.ingredients.each do |i| %>
+  <li><%= i.name %></li>
+  <% end %>
+</ul>
 <p><%= @recipe.instructions %></p>
+
+<%= link_to "Add Image", new_recipe_image_path(@recipe) %>

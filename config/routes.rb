@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :users
   resources :recipes do
-    resources :images
+    resources :images, only: [:show, :new]
   end
+  resources :images
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

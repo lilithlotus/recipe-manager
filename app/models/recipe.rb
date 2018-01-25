@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
   belongs_to :meal
+  has_many :images 
   accepts_nested_attributes_for :ingredients
 
   def ingredients_attributes=(ingredients_attributes)

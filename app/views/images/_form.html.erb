@@ -1,0 +1,10 @@
+<%= form_for @image do |f| %>
+  <%= f.hidden_field :recipe_id %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br />
+  <%= f.label :caption %>
+  <%= f.text_area :caption %>
+  <br />
+  <%= f.submit %>
+<% end %>
