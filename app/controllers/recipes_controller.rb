@@ -22,7 +22,13 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all 
+    @recipes = Recipe.all
+  end
+
+  def destroy
+    @user = session[:user_id]
+    @recipe = Recipe.find(params[:id]).destroy
+    redirect_to user_path(@user)
   end
 
   private

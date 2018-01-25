@@ -1,4 +1,10 @@
-
-
+<h2>My Recipies</h2>
+<ul>
+<% @user.recipes.each do |recipe| %>
+  <li><%= link_to "#{recipe.name}", recipe_path(recipe) %></li>
+<% end %>
+</ul>
+<br />
 <%= link_to "Create a New Recipe", new_recipe_path %>
+<br />
 <%= link_to "Logout", logout_path %>

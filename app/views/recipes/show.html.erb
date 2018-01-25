@@ -5,8 +5,11 @@
 <ul>
 <% @recipe.ingredients.each do |i| %>
   <li><%= i.name %></li>
-  <% end %>
+<% end %>
 </ul>
 <p><%= @recipe.instructions %></p>
 
 <%= link_to "Add Image", new_recipe_image_path(@recipe) %>
+<br />
+<%= form_tag recipe_path(@recipe.id), method: "delete" %>
+  <%= submit_tag "Delete Recipe" %>
