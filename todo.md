@@ -1,2 +1,4 @@
--how to add quantity for ingredients 
+-how to add quantity for ingredients
 -add facebook login capabilities
+-scope method
+-display validation errors

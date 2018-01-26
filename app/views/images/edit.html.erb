@@ -1,2 +1,16 @@
+<% if @image.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@image.errors.count, "error") %>
+      prohibited this image from being edited:
+    </h2>
+
+    <ul>
+    <% @image.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <h2>Edit Image</h2>
 <%= render partial: "form" %>
