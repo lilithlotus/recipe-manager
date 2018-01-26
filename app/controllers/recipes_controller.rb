@@ -1,15 +1,19 @@
 class RecipesController < ApplicationController
-
+  include ApplicationHelper
   def new
-    @recipe = Recipe.new
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
+    if current_user
+      @recipe = Recipe.new
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -25,17 +29,21 @@ class RecipesController < ApplicationController
   end
 
   def show
-    
+
     @recipe = Recipe.find(params[:id])
     @user = @recipe.user
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
-    @recipe.ingredients.build
+    if current_user
+      @recipe = Recipe.find(params[:id])
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+      @recipe.ingredients.build
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -52,9 +60,13 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @user = session[:user_id]
-    @recipe = Recipe.find(params[:id]).destroy
-    redirect_to user_path(@user)
+    if current_user
+      @user = session[:user_id]
+      @recipe = Recipe.find(params[:id]).destroy
+      redirect_to user_path(@user)
+    else
+      redirect_to root_path
+    end
   end
 
   private

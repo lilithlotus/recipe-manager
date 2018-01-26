@@ -6,8 +6,9 @@
   <%= form_tag recipe_image_path(@recipe.id, image.id), method: "delete" %>
     <%= submit_tag "Delete Image" %>
 <% end %>
-
-<%= link_to "Add Image", new_recipe_image_path(@recipe) %>
+<% if current_user %>
+  <%= link_to "Add Image", new_recipe_image_path(@recipe) %>
+<% end %>
 <br />
 <br />
 <h2>Recipe Author:</h2>
@@ -31,8 +32,9 @@
 
 <br />
 
-
-<%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
-<br />
-<%= form_tag recipe_path(@recipe.id), method: "delete" %>
-  <%= submit_tag "Delete Recipe" %>
+<% if current_user %>
+  <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
+  <br />
+  <%= form_tag recipe_path(@recipe.id), method: "delete" %>
+    <%= submit_tag "Delete Recipe" %>
+<% end %>

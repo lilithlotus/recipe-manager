@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
 
   def new
     @user = User.new
@@ -15,7 +16,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: session[:user_id])
+    if current_user
+      @user = User.find_by(id: session[:user_id])
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -27,5 +32,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-  
+
 end
