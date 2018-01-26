@@ -10,6 +10,8 @@
 <%= link_to "Add Image", new_recipe_image_path(@recipe) %>
 <br />
 <br />
+<h2>Recipe Author:</h2>
+<p><%= @user.name %></p>
 <h2>Description:</h2>
 <p><%= @recipe.description %></p>
 <h2>Cook Time:</h2>

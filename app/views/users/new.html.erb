@@ -16,18 +16,22 @@
 <%= form_for @user do |f| %>
   <div class="field_with_errors">
   Name:
-
+<br />
     <%= f.text_field :name %>
   </div>
   <div class="field_with_errors">
   Email:
-
+<br />
     <%= f.text_field :email %>
   </div>
-  <div class="field_with_errors">
-  Password:
 
-    <%= f.password_field :password %>
+  Password:
+<br />
+  <%= f.password_field :password %>
+  <div class="field_with_errors">
+    Password Confirmation:
+<br />
+    <%= f.text_field :password_confirmation %>
   </div>
   <%= f.submit "Submit" %>
 <% end %>

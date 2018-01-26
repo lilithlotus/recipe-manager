@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
   end
 
   def create
-    binding.pry
+  
     @recipe = Recipe.find(params[:image][:recipe_id])
     @image = Image.new(image_params)
     if @image.save
