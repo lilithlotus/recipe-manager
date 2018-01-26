@@ -2,3 +2,4 @@
 -add facebook login capabilities
 -scope method
 -display validation errors
+-logged in helper method

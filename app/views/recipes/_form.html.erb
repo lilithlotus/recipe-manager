@@ -1,19 +1,27 @@
 <%= form_for @recipe do |f| %>
   <%= f.label :name %>
   <br />
-  <%= f.text_field :name %>
+  <div class="field_with_errors">
+    <%= f.text_field :name %>
+  </div>
   <br />
-  <%= f.label :description %>
+    <%= f.label :description %>
   <br />
-  <%= f.text_area :description %>
+  <div class="field_with_errors">
+    <%= f.text_area :description %>
+  </div>
   <br />
-  <%= f.label :cook_time %>
+    <%= f.label :cook_time %>
   <br />
-  <%= f.text_field :cook_time %>
+  <div class="field_with_errors">
+    <%= f.text_field :cook_time %>
+  </div>
   <br />
-  <%= f.label :servings %>
+    <%= f.label :servings %>
   <br />
-  <%= f.text_field :servings %>
+  <div class="field_with_errors">
+    <%= f.text_field :servings %>
+  </div>
   <br />
 Ingredients:
 <br />

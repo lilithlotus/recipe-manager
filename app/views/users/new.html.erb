@@ -14,9 +14,20 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <div class="field_with_errors">
+  Name:
+
+    <%= f.text_field :name %>
+  </div>
+  <div class="field_with_errors">
+  Email:
+
+    <%= f.text_field :email %>
+  </div>
+  <div class="field_with_errors">
+  Password:
+
+    <%= f.password_field :password %>
+  </div>
   <%= f.submit "Submit" %>
 <% end %>
