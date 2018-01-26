@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :users
   resources :recipes do
-    resources :images, only: [:show, :new, :edit]
+    resources :images, only: [:show, :new, :destroy, :edit]
   end
   resources :images
 

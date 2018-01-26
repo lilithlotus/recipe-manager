@@ -1,2 +1,2 @@
--add nest route for pictures
--add facebook login capabilities 
+-how to add quantity for ingredients 
+-add facebook login capabilities

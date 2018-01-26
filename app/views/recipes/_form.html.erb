@@ -25,64 +25,7 @@ Ingredients:
           <% end %>
       </datalist>
   <% end %>
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
-  <br />
-  <br />
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-  <% end %>
+
 
   <br />
   <%= f.label :instructions %>

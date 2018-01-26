@@ -1,15 +1,33 @@
-<h2><%= @recipe.name %></h2>
+<h1><%= @recipe.name %></h1>
+<% @recipe.images.each do |image| %>
+  <p><img src="<%= image.url %>"></p>
+  <%= image.caption %>
+  <%= link_to "Edit Image", edit_recipe_image_path(@recipe, image) %>
+  <%= form_tag recipe_image_path(@recipe.id, image.id), method: "delete" %>
+    <%= submit_tag "Delete Image" %>
+<% end %>
+
+<%= link_to "Add Image", new_recipe_image_path(@recipe) %>
+<br />
+<br />
+<h2>Description:</h2>
 <p><%= @recipe.description %></p>
+<h2>Cook Time:</h2>
 <p><%= @recipe.cook_time %></p>
+<h2>Servings:</h2>
 <p><%= @recipe.servings %></p>
+<h2>Ingredients</h2>
 <ul>
 <% @recipe.ingredients.each do |i| %>
 
   <li><%= i.name %></li>
-  
+
 <% end %>
 </ul>
+<h2>Cooking Instructions</h2>
 <p><%= @recipe.instructions %></p>
+
+<br />
 
 <%= link_to "Add Image", new_recipe_image_path(@recipe) %>
 <br />

@@ -5,16 +5,40 @@ class ImagesController < ApplicationController
   end
 
   def create
+    binding.pry
+    @recipe = Recipe.find(params[:image][:recipe_id])
     @image = Image.new(image_params)
     if @image.save
-      redirect to recipe_image_path(@image)
+      redirect_to recipe_path(@recipe)
     else
       render 'new'
     end
   end
 
+  def destroy
+
+    @recipe = Recipe.find(params[:recipe_id])
+    @image = Image.find(params[:id]).destroy
+    redirect_to recipe_path(@recipe)
+  end
+
     def show
       @image = Image.find(params[:id])
+    end
+
+    def edit
+      @image = Image.find(params[:id])
+    end
+
+    def update
+      binding.pry
+      @recipe = Recipe.find(params[:image][:recipe_id])
+      @image = Image.find(params[:id])
+      if @image.update(image_params)
+        redirect_to recipe_path(@recipe)
+      else
+        render 'edit'
+      end
     end
 
     private

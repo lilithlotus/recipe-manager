@@ -18,17 +18,17 @@
   <br />
 Ingredients:
 <br />
-<% binding.pry %>
-<% @recipe.ingredients.each do |i| %>
+
+
 <%= f.fields_for :ingredients do |ingredients_fields| %>
-    <%= ingredients_fields.text_field :name, :value => "#{i.name}", list: "ingredients_autocomplete" %>
+    <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
     <datalist id="ingredients_autocomplete">
       <% Ingredient.all.each do |ingredient| %>
       <option value="<%= ingredient.name %>">
         <% end %>
     </datalist>
 <% end %>
-<% end %>
+
 
 
   <br />
