@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
+    if logged_in?
       @user = User.find_by(id: session[:user_id])
     else
       redirect_to root_path

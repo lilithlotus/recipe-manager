@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   include ApplicationHelper
   def new
-    if current_user
+    if logged_in?
       @recipe = Recipe.new
       @recipe.ingredients.build
       @recipe.ingredients.build
@@ -32,8 +32,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    if current_user
-      @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+    if current_user == @recipe.user
       @recipe.ingredients.build
       @recipe.ingredients.build
       @recipe.ingredients.build
@@ -45,10 +45,12 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe)
-    else
-      render 'edit'
+    if current_user == @recipe.user
+      if @recipe.update(recipe_params)
+        redirect_to recipe_path(@recipe)
+      else
+        render 'edit'
+      end
     end
   end
 
@@ -57,10 +59,10 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    if current_user
-      @user = session[:user_id]
+    @recipe = Recipe.find(params[:id]).destroy
+    if current_user == @recipe.user
       @recipe = Recipe.find(params[:id]).destroy
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     else
       redirect_to root_path
     end

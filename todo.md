@@ -3,3 +3,4 @@
 -scope method
 -spec.md
 -correct permission to edit and delete
+-fix case issue with find_or_create_by with ingredients 

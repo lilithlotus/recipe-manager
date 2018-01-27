@@ -1,11 +1,15 @@
 <h1><%= @recipe.name %></h1>
 
+<%= link_to "Browse Recipes", recipes_path %>
+
 <% @recipe.images.each do |image| %>
   <p><img src="<%= image.url %>"></p>
   <%= image.caption %>
-  <%= link_to "Edit Image", edit_recipe_image_path(@recipe, image) %>
-  <%= form_tag recipe_image_path(@recipe.id, image.id), method: "delete" %>
-    <%= submit_tag "Delete Image" %>
+  <% if current_user == @recipe.user %>
+    <%= link_to "Edit Image", edit_recipe_image_path(@recipe, image) %>
+    <%= form_tag recipe_image_path(@recipe.id, image.id), method: "delete" %>
+      <%= submit_tag "Delete Image" %>
+  <% end %>
 <% end %>
 
 <% if current_user == @recipe.user %>
