@@ -3,7 +3,7 @@
 <h1><%= @recipe.name %></h1>
 
 <% @recipe.images.each do |image| %>
-  <p><img src="<%= image.url %>"></p>
+  <p><a href="<%= recipe_image_path(image, @recipe) %>"><img src="<%= image.url %>"></a></p>
   <% #how to turn image into link to show page? %>
   <%= image.caption %>
 
@@ -38,6 +38,7 @@
     <% @recipe.ingredients.each do |i| %>
       <li><%= i.name %>
       <% if current_user == @recipe.user %>
+
       <%= form_tag recipe_ingredient_path(i.id), method: "delete" %>
       <%= hidden_field(:recipe, :id) %>
       <%= submit_tag "Delete Ingredient" %></li>
