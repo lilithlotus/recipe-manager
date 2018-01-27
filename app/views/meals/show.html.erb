@@ -2,7 +2,7 @@
 
 <h1><%= @meal.title %></h1>
 <ul>
-  <%= @recipes.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
     <li><%= link_to "#{recipe.name}", recipe_path(recipe) %></li>
   <% end %>
 </ul>

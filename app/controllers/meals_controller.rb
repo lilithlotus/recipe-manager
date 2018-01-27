@@ -6,7 +6,7 @@ class MealsController < ApplicationController
 
   def show
     @meal = Meal.find(params[:id])
-    @recipes = Recipe.by_meal(params[:meal])
+    @recipes = Recipe.by_meal(params[:id])
   end
 
 end
