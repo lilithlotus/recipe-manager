@@ -6,6 +6,10 @@ class Recipe < ApplicationRecord
   has_many :images
   validates :name, :instructions, presence: true
 
+  def to_param
+    "#{id}-#{name}"
+  end
+
   def ingredients_attributes=(ingredients_attributes)
     ingredients_attributes.values.each do |ingredient_attribute|
       ingredient = Ingredient.find_or_create_by(ingredient_attribute)
@@ -16,7 +20,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.by_meal(meal_id)
-    where("meal_id", meal_id)
+    where(meal: meal_id)
   end
 
 end

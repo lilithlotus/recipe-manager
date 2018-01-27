@@ -5,7 +5,7 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = Ingredient.find_or_create_by(ingredient_params)
   end
 
   private
