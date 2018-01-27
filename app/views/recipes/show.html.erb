@@ -1,4 +1,5 @@
 <h1><%= @recipe.name %></h1>
+
 <% @recipe.images.each do |image| %>
   <p><img src="<%= image.url %>"></p>
   <%= image.caption %>
@@ -6,37 +7,44 @@
   <%= form_tag recipe_image_path(@recipe.id, image.id), method: "delete" %>
     <%= submit_tag "Delete Image" %>
 <% end %>
-<% if current_user %>
+
+<% if current_user == @recipe.user %>
   <%= link_to "Add Image", new_recipe_image_path(@recipe) %>
 <% end %>
+
 <br />
 <br />
+
 <h2>Recipe Author:</h2>
 <p><%= @user.name %></p>
+
 <h2>Description:</h2>
 <p><%= @recipe.description %></p>
+
 <h2>Cook Time:</h2>
 <p><%= @recipe.cook_time %></p>
+
 <h2>Servings:</h2>
 <p><%= @recipe.servings %></p>
-<h2>Ingredients</h2>
-<ul>
-<% @recipe.ingredients.each do |i| %>
 
-  <li><%= i.name %>
-    <% if current_user %>
-    <%= form_tag recipe_ingredient_path(i.id), method: "delete" %>
-    <%= hidden_field(:recipe, :id) %>
-    <%= submit_tag "Delete Ingredient" %></li>
+<h2>Ingredients</h2>
+  <ul>
+    <% @recipe.ingredients.each do |i| %>
+      <li><%= i.name %>
+      <% if current_user == @recipe.user %>
+      <%= form_tag recipe_ingredient_path(i.id), method: "delete" %>
+      <%= hidden_field(:recipe, :id) %>
+      <%= submit_tag "Delete Ingredient" %></li>
+      <% end %>
     <% end %>
-<% end %>
-</ul>
+  </ul>
+
 <h2>Cooking Instructions</h2>
 <p><%= @recipe.instructions %></p>
 
 <br />
 
-<% if current_user %>
+<% if current_user == @recipe.user %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
   <br />
   <%= form_tag recipe_path(@recipe.id), method: "delete" %>

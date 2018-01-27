@@ -1,30 +1,32 @@
 <%= form_for @recipe do |f| %>
-  <%= f.label :name %>
-  <br />
   <div class="field_with_errors">
+    <%= f.label :name %>
+    <br />
     <%= f.text_field :name %>
   </div>
+
   <br />
-    <%= f.label :description %>
+
+  <%= f.label :description %>
   <br />
-  <div class="field_with_errors">
-    <%= f.text_area :description %>
-  </div>
+  <%= f.text_area :description %>
+
   <br />
-    <%= f.label :cook_time %>
+
+  <%= f.label :cook_time %>
   <br />
-  <div class="field_with_errors">
-    <%= f.text_field :cook_time %>
-  </div>
+  <%= f.text_field :cook_time %>
+
   <br />
-    <%= f.label :servings %>
+
+  <%= f.label :servings %>
   <br />
-  <div class="field_with_errors">
-    <%= f.text_field :servings %>
-  </div>
+  <%= f.text_field :servings %>
+
   <br />
-Ingredients:
-<br />
+
+  <p>Ingredients:</p>
+  <br />
   <%= f.fields_for :ingredients do |ingredients_fields| %>
       <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
       <datalist id="ingredients_autocomplete">
@@ -34,14 +36,18 @@ Ingredients:
       </datalist>
   <% end %>
 
+  <br />
 
-  <br />
-  <%= f.label :instructions %>
-  <br />
-  <%= f.text_area :instructions %>
+  <div class="field_with_errors">
+    <%= f.label :instructions %>
+    <br />
+    <%= f.text_area :instructions %>
+  </div>
+
   <br />
   <%= f.collection_select :meal_id, Meal.all, :id, :title %>
   <br />
+  
   <%= f.submit %>
 
 <% end %>

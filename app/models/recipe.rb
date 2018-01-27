@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   belongs_to :meal
   has_many :images
+  validates :name, :instructions, presence: true
 
   def ingredients_attributes=(ingredients_attributes)
     ingredients_attributes.values.each do |ingredient_attribute|
