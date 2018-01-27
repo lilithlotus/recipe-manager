@@ -1,6 +1,6 @@
-<h1><%= @recipe.name %></h1>
-
 <%= link_to "Browse Recipes", recipes_path %>
+
+<h1><%= @recipe.name %></h1>
 
 <% @recipe.images.each do |image| %>
   <p><img src="<%= image.url %>"></p>
