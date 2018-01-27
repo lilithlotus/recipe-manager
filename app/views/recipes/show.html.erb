@@ -4,7 +4,9 @@
 
 <% @recipe.images.each do |image| %>
   <p><img src="<%= image.url %>"></p>
+  <% #how to turn image into link to show page? %>
   <%= image.caption %>
+
   <% if current_user == @recipe.user %>
     <%= link_to "Edit Image", edit_recipe_image_path(@recipe, image) %>
     <%= form_tag recipe_image_path(@recipe.id, image.id), method: "delete" %>
