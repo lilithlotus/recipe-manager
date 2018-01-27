@@ -15,4 +15,8 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def self.by_meal(meal_id)
+    where("meal_id", meal_id)
+  end
+
 end
