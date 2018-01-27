@@ -2,17 +2,18 @@
 
   <%= f.hidden_field :recipe_id %>
 
-  <%= f.label :url %>
   <div class="field_with_errors">
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
 
   <br />
-  <%= f.label :caption %>
-  
-    <%= f.text_area :caption %>
 
+  <%= f.label :caption %>
+  <%= f.text_area :caption %>
 
   <br />
+
   <%= f.submit %>
+  
 <% end %>

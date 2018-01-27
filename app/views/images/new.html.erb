@@ -1,5 +1,7 @@
 <% if @image.errors.any? %>
+
   <div id="error_explanation">
+
     <h2>
       <%= pluralize(@image.errors.count, "error") %>
       prohibited this image from being saved:
@@ -10,8 +12,10 @@
       <li><%= msg %></li>
     <% end %>
     </ul>
-  </div>
-<% end %>
-<h1>Upload an Image</h1>
 
+  </div>
+
+<% end %>
+
+<h1>Upload an Image</h1>
 <%= render partial: "form" %>
