@@ -34,6 +34,9 @@
         <option value="<%= ingredient.name %>">
           <% end %>
       </datalist>
+      <%= ingredients_fields.fields_for :recipe_ingredients do |r| %>
+        <%= r.text_field :quantity %>
+        <% end %> 
   <% end %>
 
   <br />
@@ -47,7 +50,7 @@
   <br />
   <%= f.collection_select :meal_id, Meal.all, :id, :title %>
   <br />
-  
+
   <%= f.submit %>
 
 <% end %>
