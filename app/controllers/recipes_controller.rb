@@ -20,16 +20,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = session[:user_id]
     if @recipe.save
-
       redirect_to recipe_path(@recipe)
-
     else
       render 'new'
     end
   end
 
   def show
-
     @recipe = Recipe.find(params[:id])
     @user = @recipe.user
   end

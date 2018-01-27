@@ -1,3 +1,5 @@
 -how to add quantity for ingredients
--add facebook login capabilities
+-add facebook login capabilities-added, weird workaround
 -scope method
+-spec.md
+-correct permission to edit and delete

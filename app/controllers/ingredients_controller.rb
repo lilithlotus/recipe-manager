@@ -8,8 +8,6 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new(ingredient_params)
   end
 
-  end
-
   private
 
   def ingredient_params

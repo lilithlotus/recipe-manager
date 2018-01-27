@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     if User.find_by(email: params[:session][:email])
       @user = User.find_by(email: params[:session][:email])
       return head(:forbidden) unless @user.authenticate(params[:session][:password])
@@ -13,9 +12,7 @@ class SessionsController < ApplicationController
     else
       redirect_to '/login'
     end
-
   end
-
 
   def destroy
     session.destroy
