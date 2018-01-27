@@ -1,5 +1,7 @@
 <% if @user.errors.any? %>
+
   <div id="error_explanation">
+
     <h2>
       <%= pluralize(@user.errors.count, "error") %>
       prohibited you from creating an account:
@@ -10,28 +12,32 @@
       <li><%= msg %></li>
     <% end %>
     </ul>
+
   </div>
+
 <% end %>
 
 <%= form_for @user do |f| %>
   <div class="field_with_errors">
-  Name:
-<br />
+    <p>Name:</p>
     <%= f.text_field :name %>
   </div>
+
   <div class="field_with_errors">
-  Email:
-<br />
+    <p>Email:</p>
     <%= f.text_field :email %>
   </div>
 
-  Password:
-<br />
-  <%= f.password_field :password %>
   <div class="field_with_errors">
-    Password Confirmation:
-<br />
+    <p>Password:</p>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field_with_errors">
+    <p>Password Confirmation:</p>
     <%= f.text_field :password_confirmation %>
   </div>
+
   <%= f.submit "Submit" %>
+  
 <% end %>
