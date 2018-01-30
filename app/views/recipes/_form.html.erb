@@ -34,9 +34,11 @@
         <option value="<%= ingredient.name %>">
           <% end %>
       </datalist>
+
       <%= ingredients_fields.fields_for :recipe_ingredients do |r| %>
+        <%= r.label :quantity %>
         <%= r.text_field :quantity %>
-        <% end %> 
+        <% end %>
   <% end %>
 
   <br />

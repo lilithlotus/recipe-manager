@@ -39,7 +39,7 @@
     <% @ri = RecipeIngredient.find_by(recipe_id: @recipe.id, ingredient_id: i.id) %>
       <li><%= i.name %>
         <%= @ri.quantity %>
-        <% binding.pry %>
+      
       <% if current_user == @recipe.user %>
 
       <%= form_tag recipe_ingredient_path(i.id), method: "delete" %>
