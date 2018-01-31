@@ -1,2 +1,3 @@
 -how to add quantity for ingredients!!!!
+-authenticity token when deleting an ingredient
 -fix case issue with find_or_create_by with ingredients
