@@ -25,9 +25,10 @@
 
   <br />
 
-  <p>Ingredients:</p>
+
   <br />
   <%= f.fields_for :ingredients do |ingredients_fields| %>
+      <%= ingredients_fields.label :ingredient %>
       <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
       <datalist id="ingredients_autocomplete">
         <% Ingredient.all.each do |ingredient| %>
