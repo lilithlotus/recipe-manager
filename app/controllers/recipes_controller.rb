@@ -17,7 +17,6 @@ class RecipesController < ApplicationController
   end
 
   def create
-
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = session[:user_id]
     if @recipe.save
@@ -76,7 +75,4 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :description, :cook_time, :servings, :instructions, :meal_id, recipe_ingredients_attributes: [:name, :quantity])
   end
 
-  def recipe_ingredients_params
-    params.require(:recipe).permit(ingredients_attributes: [recipe_ingredients: [:quantity]])
-  end
 end

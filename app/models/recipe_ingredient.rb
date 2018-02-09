@@ -8,4 +8,5 @@ class RecipeIngredient < ApplicationRecord
       ingredient.name
     end
   end
+  
 end

@@ -4,4 +4,5 @@ class Meal < ApplicationRecord
   def to_param
     "#{id}-#{title}"
   end
+  
 end
