@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Recipe Manager is a content management system that allows users to create accounts through the application or by using their Facebook account to create and browser recipies.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run this application locally please fork and clone this repository.
+1 Run rake db:migrate
+2 Run rake db:seed
+3 Run rails s
