@@ -14,9 +14,7 @@ class Recipe < ApplicationRecord
 
     recipe_ingredients_attributes.each do |recipe_ingredient_attribute|
       ingredient = Ingredient.find_or_create_by(name: recipe_ingredient_attribute[1]["name"])
-      if !ingredient.name.blank? && !self.ingredients.include?(ingredient)
-        self.ingredients << ingredient
-      end
+      self.recipe_ingredients.build(quantity: recipe_ingredient_attribute[1]["quantity"], ingredient_id: ingredient.id)
     end
   end
 
