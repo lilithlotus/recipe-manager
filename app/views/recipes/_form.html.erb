@@ -28,8 +28,9 @@
 
   <br />
   <%= f.fields_for :recipe_ingredients do |rf| %>
-    <%= rf.text_field :name %>
-    <%= rf.text_field :quantity %>
+    Ingredient:<%= rf.text_field :name %>
+    Quantity:<%= rf.text_field :quantity %>
+    <br />
   <% end %>
 
 
