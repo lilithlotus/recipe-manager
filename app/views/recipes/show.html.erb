@@ -37,6 +37,7 @@
   <ul>
     <% @recipe.ingredients.each do |i| %>
     <% @ri = RecipeIngredient.find_by(recipe_id: @recipe.id, ingredient_id: i.id) %>
+  
       <li><%= i.name %>
         <%= @ri.quantity %>
 

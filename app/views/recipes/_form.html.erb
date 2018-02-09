@@ -27,21 +27,15 @@
 
 
   <br />
-  <%= f.fields_for :ingredients do |ingredients_fields| %>
-      <%= ingredients_fields.label :ingredient %>
-      <%= ingredients_fields.text_field :name, list: "ingredients_autocomplete" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-        <option value="<%= ingredient.name %>">
-          <% end %>
-      </datalist>
-
-      <%= ingredients_fields.fields_for :recipe_ingredients do |r| %>
-        <%= r.label :quantity %>
-        <%= r.text_field :quantity %>
-        <br />
-        <% end %>
+  <%= f.fields_for :recipe_ingredients do |rf| %>
+    <%= rf.text_field :name %>
+    <%= rf.text_field :quantity %>
   <% end %>
+
+
+
+
+
 
   <br />
 

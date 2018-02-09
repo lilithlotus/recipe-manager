@@ -10,9 +10,10 @@ class Recipe < ApplicationRecord
     "#{id}-#{name}"
   end
 
-  def ingredients_attributes=(ingredients_attributes)
-    ingredients_attributes.values.each do |ingredient_attribute|
-      ingredient = Ingredient.find_or_create_by(ingredient_attribute)
+  def recipe_ingredients_attributes=(recipe_ingredients_attributes)
+
+    recipe_ingredients_attributes.each do |recipe_ingredient_attribute|
+      ingredient = Ingredient.find_or_create_by(name: recipe_ingredient_attribute[1]["name"])
       if !ingredient.name.blank? && !self.ingredients.include?(ingredient)
         self.ingredients << ingredient
       end

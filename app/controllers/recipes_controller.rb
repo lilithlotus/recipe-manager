@@ -3,24 +3,19 @@ class RecipesController < ApplicationController
   def new
     if logged_in?
       @recipe = Recipe.new
-      @recipe.ingredients.build
-      @recipe.ingredients.build
-      @recipe.ingredients.build
-      @recipe.ingredients.build
-      @recipe.ingredients.build
-      @recipe.ingredients.build
-      @recipe.ingredients.build
-      @recipe.ingredients.build
+      @recipe.recipe_ingredients.build
+
     else
       redirect_to root_path
     end
   end
 
   def create
-    binding.pry
+
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = session[:user_id]
     if @recipe.save
+      
       redirect_to recipe_path(@recipe)
     else
       render 'new'
@@ -60,9 +55,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id]).destroy
+    @recipe = Recipe.find_by(id: params[:id])
     if current_user == @recipe.user
-      @recipe = Recipe.find(params[:id]).destroy
+      @recipe.destroy
       redirect_to user_path(current_user)
     else
       redirect_to root_path
@@ -72,7 +67,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :cook_time, :servings, :instructions, :meal_id, ingredients_attributes: [:name])
+    params.require(:recipe).permit(:name, :description, :cook_time, :servings, :instructions, :meal_id, recipe_ingredients_attributes: [:name, :quantity])
   end
 
   def recipe_ingredients_params
