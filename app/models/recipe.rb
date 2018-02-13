@@ -6,10 +6,6 @@ class Recipe < ApplicationRecord
   has_many :images
   validates :name, :instructions, presence: true
 
-  #def to_param
-    #{}"#{id}-#{name}"
-  #end
-
   def recipe_ingredients_attributes=(recipe_ingredients_attributes)
 
     recipe_ingredients_attributes.each do |recipe_ingredient_attribute|
