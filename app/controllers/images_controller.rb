@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find(params[:id])
+    @image = Image.find(params[:recipe_id])
   end
 
   def edit
