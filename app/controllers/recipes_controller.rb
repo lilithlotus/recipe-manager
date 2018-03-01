@@ -30,6 +30,8 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @user = @recipe.user
+    @recipe.comments.build
+    @comment = Comment.new
   end
 
   def edit

@@ -51,10 +51,19 @@
     <% end %>
   </ul>
 
+
 <h2>Cooking Instructions</h2>
 <p><%= @recipe.instructions %></p>
 
 <br />
+Comment:
+<%= form_for @recipe do |f| %>
+<% f.fields_for :comment do |c| %>
+  <%= c.text_area :content %>
+
+  <% end %>
+  <%= f.submit %>
+<% end %>
 
 <% if current_user == @recipe.user %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>

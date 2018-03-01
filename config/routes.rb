@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   resources :users
   resources :recipes do
     resources :images, only: [:show, :new, :destroy, :edit]
+    resources :comments, only: [:new, :show, :index]
   end
 
   resources :images
+  resources :comments 
 
   resources :recipe_ingredients, only: [:destroy]
 
