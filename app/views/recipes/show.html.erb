@@ -56,14 +56,21 @@
 <p><%= @recipe.instructions %></p>
 
 <br />
-Comment:
+Leave Comment:
 <%= form_for @recipe do |f| %>
-<% f.fields_for :comment do |c| %>
-  <%= c.text_area :content %>
-
+  <%= f.fields_for :comment do |cf| %>
+  <%= cf.text_area :content %>
   <% end %>
   <%= f.submit %>
 <% end %>
+
+Comments:
+<% @recipe.comments.each do |comment| %>
+  <%= comment.content %>
+  <% end %>
+
+  <br />
+  <br />
 
 <% if current_user == @recipe.user %>
   <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>

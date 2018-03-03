@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
+
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
@@ -12,11 +14,11 @@ Rails.application.routes.draw do
   resources :users
   resources :recipes do
     resources :images, only: [:show, :new, :destroy, :edit]
-    resources :comments, only: [:new, :show, :index]
+    resources :comments, only: [:new, :show, :index, :edit]
   end
 
   resources :images
-  resources :comments 
+  resources :comments
 
   resources :recipe_ingredients, only: [:destroy]
 

@@ -5,12 +5,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = @recipe.comments.create(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to @recipe
+      redirect_to @recipe
   end
 
   private
