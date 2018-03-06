@@ -1,15 +1,12 @@
 class CommentsController < ApplicationController
-
-  def new
-    @comment = Comment.new
-  end
-
+  include ApplicationHelper
+  
   def create
     @recipe = Recipe.find(params[:recipe_id])
-    @comment = Comment.new(comment_params)
+    @comment = @recipe.comments.create(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-      redirect_to @recipe
+      redirect_to recipe_path(@recipe)
   end
 
   private
