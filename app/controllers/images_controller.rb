@@ -16,7 +16,7 @@ class ImagesController < ApplicationController
       end
     end
   end
-
+ 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
     if current_user == @recipe.user

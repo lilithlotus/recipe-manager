@@ -1,5 +1,5 @@
 # README
-
+6/20/19- restored to only Rails to add back in JavaScript
 Recipe Manager is a content management system that allows users to create accounts through the application or by using their Facebook account to create and browser recipies.
 
 To run this application locally please fork and clone this repository.
